@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import {Switch, BrowserRouter, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import '../styles/css/normalize.css';
 
-import LandingPage from './LandingPage';
+import Home from './Home';
 import NotFound from './NotFound';
+import Header from './Header';
+
+const Container = styled.div`
+  font-family: sans-serif;
+  padding: 10px;
+`;
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div>
+      <Container>
+        <Header />
         <Switch>
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" component={Home} />
           <Route component={NotFound}/>
         </Switch>
-      </div>
+      </Container>
     </BrowserRouter>
   )
 }
